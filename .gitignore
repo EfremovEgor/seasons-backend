@@ -1,0 +1,36 @@
+# Compiled binaries and executables
+# (Windows, macOS, Linux, and WebAssembly)
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.prof
+*.wasm
+
+# Output directory for CLI builds or local testing
+bin/
+dist/
+
+# Test coverage and profiling files
+*.out
+*.coverprofile
+coverage.txt
+
+# Dependency directories 
+# (Uncomment vendoring ONLY if you do not want to commit the vendor folder)
+# vendor/
+
+# Local environment configuration secrets
+.env
+.env.local
+
+# IDEs and text editors (Optional but recommended)
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
