@@ -12,6 +12,7 @@
 # Output directory for CLI builds or local testing
 bin/
 dist/
+tmp/
 
 # Test coverage and profiling files
 *.out

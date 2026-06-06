@@ -57,6 +57,17 @@ func (ns NullUserRole) Value() (driver.Value, error) {
 	return string(ns.UserRole), nil
 }
 
+type Session struct {
+	ID         uuid.UUID      `db:"id" json:"id"`
+	UserID     uuid.UUID      `db:"user_id" json:"user_id"`
+	Token      string         `db:"token" json:"token"`
+	IpAddress  sql.NullString `db:"ip_address" json:"ip_address"`
+	UserAgent  sql.NullString `db:"user_agent" json:"user_agent"`
+	CreatedAt  time.Time      `db:"created_at" json:"created_at"`
+	ExpiresAt  time.Time      `db:"expires_at" json:"expires_at"`
+	LastUsedAt sql.NullTime   `db:"last_used_at" json:"last_used_at"`
+}
+
 type User struct {
 	ID                   uuid.UUID      `db:"id" json:"id"`
 	Login                sql.NullString `db:"login" json:"login"`

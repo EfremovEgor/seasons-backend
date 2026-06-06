@@ -12,12 +12,18 @@ import (
 )
 
 type Querier interface {
+	CreateSession(ctx context.Context, arg CreateSessionParams) (Session, error)
 	CreateUser(ctx context.Context, arg CreateUserParams) (User, error)
+	DeleteExpiredSessions(ctx context.Context) error
+	DeleteSession(ctx context.Context, token string) error
 	DeleteUser(ctx context.Context, id uuid.UUID) error
+	DeleteUserSessions(ctx context.Context, userID uuid.UUID) error
+	GetSessionByToken(ctx context.Context, token string) (Session, error)
 	GetUserByID(ctx context.Context, id uuid.UUID) (User, error)
 	GetUserByLogin(ctx context.Context, login sql.NullString) (User, error)
 	ListUsers(ctx context.Context, arg ListUsersParams) ([]ListUsersRow, error)
 	SoftDeleteUser(ctx context.Context, arg SoftDeleteUserParams) (User, error)
+	UpdateSessionLastUsed(ctx context.Context, token string) error
 	UpdateUserCredentials(ctx context.Context, arg UpdateUserCredentialsParams) (User, error)
 	UpdateUserLastOnline(ctx context.Context, id uuid.UUID) error
 	UpdateUserProfile(ctx context.Context, arg UpdateUserProfileParams) (User, error)
